@@ -1,1 +1,3 @@
 # PracticaEnCompas
+Kenny
+Cristian
