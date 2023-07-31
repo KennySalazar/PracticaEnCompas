@@ -14,8 +14,6 @@ public class Basket {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Bienvenido al juego de basket ball!");
-
         System.out.println("Cual es el nombre del jugador 1?");
         String nombreJ1 = scanner.next();
 
