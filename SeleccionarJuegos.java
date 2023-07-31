@@ -1,11 +1,14 @@
 import java.util.Scanner;
 
+import ahorcado.Ahorcados;
+import basket.Basket;
+import casino.Casino;
+
 public class SeleccionarJuegos {
 
-    Ahorcados juego1 = new Ahorcados();
     Scanner scanner = new Scanner(System.in);
 
-    public void MenuJuego() {
+    public void desplegarMenu() {
         int opcion = 0;
 
         do {
@@ -19,16 +22,18 @@ public class SeleccionarJuegos {
             switch (opcion) {
                 case 1:
                     System.out.println("--BIENVENIDO AL JUEGO AHORCADOS--\n");
-                    juego1.jugar();
+                    Ahorcados ahorcado = new Ahorcados();
+                    ahorcado.jugar();
                     break;
 
                 case 2:
                     System.out.println("--BIENVENIDO AL JUEGO DE BASKETBALL--\n");
-
+                    Basket basket = new Basket();
+                    basket.jugar();
                     break;
                 case 3:
-                    System.out.println("--BIENVENIDO AL JUEGO DE CARTAS--\n");
-
+                    Casino casino = new Casino();
+                    casino.jugar();
                     break;
                 case 4:
                     System.exit(0);

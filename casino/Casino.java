@@ -12,9 +12,28 @@ public class Casino {
     public void jugar() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Bienvenido al juego de apuestas!");
+        System.out.println("Elige con cuanto dinero deseas empezar la partida");
+        int dinero = scanner.nextInt();
 
         Carta[] mazoCartasRevuelto = revolverCartas(generarArregloCartas());
-        System.out.println("La carta numero 34 es " + mazoCartasRevuelto[34].getNombre());
+
+        int indice = 0;
+        int dineroApostado;
+
+        System.out.println("Despues de revolver las cartas, el casino presenta las siguientes cartas:");
+        System.out.println("1. " + mazoCartasRevuelto[indice].getNombre());
+        indice++;
+        System.out.println("2. " + mazoCartasRevuelto[indice].getNombre());
+        indice++;
+
+        System.out.println("Por favor ingresa la cantidad de dinero que quieres apostar para que el siguiente valor ");
+        dineroApostado = scanner.nextInt();
+
+        // TODO: Cambiar el arreglo de cartas a una estructura de datos cola para poder
+        // desencolar cada vez que las cartas se muestren en la mesa y que esta a su vez
+        // se pueda revolver
+
+        System.out.println();
     }
 
     public Carta[] generarArregloCartas() {

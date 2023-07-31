@@ -1,3 +1,5 @@
+
+package ahorcado;
 import java.util.Scanner;
 
 public class Ahorcados {
