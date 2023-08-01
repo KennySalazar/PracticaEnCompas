@@ -59,9 +59,9 @@ public class SeleccionarJuegos {
             if (opcion1 == 1) {
                 if (var.getClass() == Ahorcados.class) {
                     ((Ahorcados) var).jugar();
-                }else if(var.getClass()==Basket.class){
+                } else if (var.getClass() == Basket.class) {
                     ((Basket) var).jugar();
-                }else if(var.getClass()==Casino.class){
+                } else if (var.getClass() == Casino.class) {
                     ((Casino) var).jugar();
                 }
             }
