@@ -10,7 +10,12 @@ public class Carta {
     }
 
     public String getNombre() {
-        return (this.valor.getValor() + " de " + this.palo.getPalo());
+        return (this.valor + " de " + this.palo);
+    }
+
+    public String getValor() {
+        return valor.getValor();
     }
 
 }
+

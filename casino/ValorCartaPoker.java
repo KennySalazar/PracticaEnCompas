@@ -1,19 +1,19 @@
 package casino;
 
 public enum ValorCartaPoker {
-    DOS("2"),
-    TRES("3"),
-    CUATRO("4"),
-    CINCO("5"),
-    SEIS("6"),
-    SIETE("7"),
-    OCHO("8"),
-    NUEVE("9"),
-    DIEZ("10"),
-    JOTA("J"),
-    REINA("Q"),
-    REY("K"),
-    AS("A");
+    dos("2"),
+    tres("3"),
+    cuatro("4"),
+    cinco("5"),
+    seis("6"),
+    siete("7"),
+    ocho("8"),
+    nueve("9"),
+    diez("10"),
+    jota("11"),
+    reina("12"),
+    rey("13"),
+    as("1");
 
     private final String valor;
 

@@ -15,23 +15,63 @@ public class Casino {
         System.out.println("Elige con cuanto dinero deseas empezar la partida");
         int dinero = scanner.nextInt();
 
-        Carta[] mazoCartasRevuelto = revolverCartas(generarArregloCartas());
+        Carta[] mazoCartas = generarArregloCartas();
 
-        int indice = 0;
-        int dineroApostado;
+        while (dinero > 0) {
+            int[] indicesRevueltos = generarIndicesRandom(mazoCartas.length);
+            Carta[] cartasMostradas = new Carta[3];
 
-        System.out.println("Despues de revolver las cartas, el casino presenta las siguientes cartas:");
-        System.out.println("1. " + mazoCartasRevuelto[indice].getNombre());
-        indice++;
-        System.out.println("2. " + mazoCartasRevuelto[indice].getNombre());
-        indice++;
+            for (int i = 0; i < cartasMostradas.length; i++) {
+                cartasMostradas[i] = mazoCartas[indicesRevueltos[i]];
+            }
 
-        System.out.println("Por favor ingresa la cantidad de dinero que quieres apostar para que el siguiente valor ");
-        dineroApostado = scanner.nextInt();
+            int dineroApostado;
 
-        // TODO: Cambiar el arreglo de cartas a una estructura de datos cola para poder
-        // desencolar cada vez que las cartas se muestren en la mesa y que esta a su vez
-        // se pueda revolver
+            System.out.println("Despues de revolver las cartas, el casino presenta las siguientes cartas:");
+            System.out.println("1) " + cartasMostradas[0].getNombre());
+            System.out.println("2) " + cartasMostradas[1].getNombre());
+
+            System.out.println(
+                    "Por favor ingresa la cantidad de dinero que quieres apostar para que el valor de la siguiente carta este entre los valores de las 2 cartas mostradas anteriormente");
+            dineroApostado = scanner.nextInt();
+
+            System.out.println(
+                    "la carta sacada de la baraja es: " + cartasMostradas[2].getNombre() + ". Y tiene un valor de: "
+                            + cartasMostradas[2].getValor());
+
+            int valorGrande;
+            int valorPequeno;
+            if (Integer.valueOf(cartasMostradas[0].getValor()) > Integer.valueOf(cartasMostradas[1].getValor())) {
+                valorGrande = Integer.valueOf(cartasMostradas[0].getValor());
+                valorPequeno = Integer.valueOf(cartasMostradas[1].getValor());
+            } else if (Integer.valueOf(cartasMostradas[0].getValor()) < Integer
+                    .valueOf(cartasMostradas[1].getValor())) {
+                valorGrande = Integer.valueOf(cartasMostradas[1].getValor());
+                valorPequeno = Integer.valueOf(cartasMostradas[0].getValor());
+            } else { // son iguales
+                valorGrande = Integer.valueOf(cartasMostradas[0].getValor());
+                valorPequeno = valorGrande;
+            }
+
+            int valorNuevaCarta = Integer.valueOf(cartasMostradas[2].getValor());
+
+            if (valorNuevaCarta >= valorPequeno && valorNuevaCarta <= valorGrande) {
+                dinero += dineroApostado;
+                System.out.println(
+                        "Felicidades!! El valor de la nueva carta mostrada esta entre los valores de las dos cartas mostradas anteriormente, ganas la apuesta y ahora tienes: "
+                                + dinero + " de dinero.");
+
+            } else {
+                dinero -= dineroApostado;
+                System.out.println(
+                        "El valor de la nueva carta mostrada no esta entre los valores de las dos cartas mostradas anteriormente, pierdes la apuesta :( y ahora tienes: "
+                                + dinero + " de dinero.");
+            }
+            if (dinero == 0) {
+                System.out.println("\nUpss!! :( Te quedaste sin dinero, la partida ha terminado");
+            }
+
+        }
 
         System.out.println();
     }
@@ -60,20 +100,6 @@ public class Casino {
         }
 
         return cartas;
-    }
-
-    public Carta[] revolverCartas(Carta[] mazo) {
-        Carta[] mazoRevuelto = new Carta[mazo.length];
-
-        // generar arreglo de indices aleatorios de 0 a mazo.length -1
-        int[] indices = generarIndicesRandom(mazo.length);
-
-        // Revolver mazo en base a los indices random
-        for (int i = 0; i < mazo.length; i++) {
-            mazoRevuelto[i] = mazo[indices[i]];
-        }
-
-        return mazoRevuelto;
     }
 
     private int[] generarIndicesRandom(int n) {

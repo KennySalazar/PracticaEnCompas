@@ -72,7 +72,7 @@ public class Basket {
             System.out.println("El juego ha terminado en empate");
         }
 
-        scanner.close();
+        //scanner.close();
     }
 
     public void ejecutarTurno(Jugador j1, Jugador j2) {

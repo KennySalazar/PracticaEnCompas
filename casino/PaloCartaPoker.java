@@ -1,10 +1,10 @@
 package casino;
 
 public enum PaloCartaPoker {
-    PICAS("Picas"),
-    CORAZONES("Corazones"),
-    TREBOL("Trebol"),
-    DIAMANTES("Diamantes");
+    picas("Picas"),
+    corazones("Corazones"),
+    trebol("Trebol"),
+    diamantes("Diamantes");
 
     private final String palo;
 
